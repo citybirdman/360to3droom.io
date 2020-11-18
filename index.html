@@ -198,10 +198,10 @@
 			<div>
 				<button id="f-scr" class="btn"><span class="icon-fullscreen"></span></button>
 			</div>
-			<div>
+			<!--<div>
 				<button id="m-up" class="btn"><span class="icon-up-arrow"></span></button>
 				<button id="m-dn" class="btn"><span class="icon-down-arrow"></span></button>
-			</div>
+			</div>-->
 		</div>
 		<div id="rm-map" style="transform: rotateX(0deg) rotateY(0deg) translateX(0px) translateZ(0px) rotateZ(0deg);">
 			<div class="north-dir"></div>
@@ -291,7 +291,7 @@
 					}
 				}, true);
 			}
-			//mouseClickandMoveControl();
+			mouseClickandMoveControl();
 
 			function mouseClickandMoveControlMobile(){
 				var divOverlay = document.getElementById ("overlay");
@@ -344,123 +344,123 @@
 			mouseClickandMoveControlMobile();
 		
 		/* move buttons */
-			function move(elem, btn, dir = "forward", rate = 1){
-				i = Number(getTranslationValue(str ,2));
-				j = Number(getTranslationValue(str ,3));
-				var interval, dirRate;
-				if(dir == "forward")
-					dirRate = 1;
-				else if(dir == "backward")
-					dirRate = -1;
-				btn.addEventListener('mousedown', function(event){
-					interval = setInterval(function(){
-						if(getRotationValue(str ,1) >= 0 && getRotationValue(str ,1) <= 90){
-							i -= rate * dirRate * Math.abs(getRotationValue(str ,1))/90;
-							j += rate * dirRate * (90 - Math.abs(getRotationValue(str ,1)))/90;
+			// function move(elem, btn, dir = "forward", rate = 1){
+			// 	i = Number(getTranslationValue(str ,2));
+			// 	j = Number(getTranslationValue(str ,3));
+			// 	var interval, dirRate;
+			// 	if(dir == "forward")
+			// 		dirRate = 1;
+			// 	else if(dir == "backward")
+			// 		dirRate = -1;
+			// 	btn.addEventListener('mousedown', function(event){
+			// 		interval = setInterval(function(){
+			// 			if(getRotationValue(str ,1) >= 0 && getRotationValue(str ,1) <= 90){
+			// 				i -= rate * dirRate * Math.abs(getRotationValue(str ,1))/90;
+			// 				j += rate * dirRate * (90 - Math.abs(getRotationValue(str ,1)))/90;
 							
-						}
-						else if(getRotationValue(str ,1) > 90 && getRotationValue(str ,1) <= 180){
-							i -= rate * dirRate * (90 - (Math.abs(getRotationValue(str ,1)) - 90))/90;
-							j -= rate * dirRate * (Math.abs(getRotationValue(str ,1)) - 90)/90;
+			// 			}
+			// 			else if(getRotationValue(str ,1) > 90 && getRotationValue(str ,1) <= 180){
+			// 				i -= rate * dirRate * (90 - (Math.abs(getRotationValue(str ,1)) - 90))/90;
+			// 				j -= rate * dirRate * (Math.abs(getRotationValue(str ,1)) - 90)/90;
 						
-						}
-						else if(getRotationValue(str ,1) > 180 && getRotationValue(str ,1) <= 270){
-							j -= rate * dirRate * (90 - (Math.abs(getRotationValue(str ,1)) - 180))/90;
-							i += rate * dirRate * (Math.abs(getRotationValue(str ,1)) - 180)/90;
+			// 			}
+			// 			else if(getRotationValue(str ,1) > 180 && getRotationValue(str ,1) <= 270){
+			// 				j -= rate * dirRate * (90 - (Math.abs(getRotationValue(str ,1)) - 180))/90;
+			// 				i += rate * dirRate * (Math.abs(getRotationValue(str ,1)) - 180)/90;
 						
-						}
-						else if(getRotationValue(str ,1) > 270 && getRotationValue(str ,1) < 360){
-							i += rate * dirRate * (90 - (Math.abs(getRotationValue(str ,1)) - 270))/90;
-							j += rate * dirRate * (Math.abs(getRotationValue(str ,1)) - 270)/90;
+			// 			}
+			// 			else if(getRotationValue(str ,1) > 270 && getRotationValue(str ,1) < 360){
+			// 				i += rate * dirRate * (90 - (Math.abs(getRotationValue(str ,1)) - 270))/90;
+			// 				j += rate * dirRate * (Math.abs(getRotationValue(str ,1)) - 270)/90;
 						
-						}
+			// 			}
 
-						if(i>=-185 && i<=185)
-							str = replaceTranslateValuesAndConcat(str, 2, i);
-						else{
-							i = ((i > 185)?185:-185);
-							str = replaceTranslateValuesAndConcat(str, 2, i);
-						}
-						if((j>=465 && j<=835))
-							str = replaceTranslateValuesAndConcat(str, 3, j);
-						else{
-							j = ((j > 835)?835:465);
-							str = replaceTranslateValuesAndConcat(str, 3, j);
-						}
-							elem.style.cssText = "transform: "+ str + ";";
-					}, 2);
-				});
-				document.addEventListener("mouseup", function(){
-					clearInterval(interval);
-				});
-			}
+			// 			if(i>=-185 && i<=185)
+			// 				str = replaceTranslateValuesAndConcat(str, 2, i);
+			// 			else{
+			// 				i = ((i > 185)?185:-185);
+			// 				str = replaceTranslateValuesAndConcat(str, 2, i);
+			// 			}
+			// 			if((j>=465 && j<=835))
+			// 				str = replaceTranslateValuesAndConcat(str, 3, j);
+			// 			else{
+			// 				j = ((j > 835)?835:465);
+			// 				str = replaceTranslateValuesAndConcat(str, 3, j);
+			// 			}
+			// 				elem.style.cssText = "transform: "+ str + ";";
+			// 		}, 2);
+			// 	});
+			// 	document.addEventListener("mouseup", function(){
+			// 		clearInterval(interval);
+			// 	});
+			// }
 
-			function movemobile(elem, btn, dir = "forward", rate = 1){
-				i = Number(getTranslationValue(str ,2));
-				j = Number(getTranslationValue(str ,3));
-				var interval, dirRate;
-				if(dir == "forward")
-					dirRate = 1;
-				else if(dir == "backward")
-					dirRate = -1;
-				btn.addEventListener('touchstart', function(event){
-					interval = setInterval(function(){
-						if(getRotationValue(str ,1) >= 0 && getRotationValue(str ,1) <= 90){
-							i -= rate * dirRate * Math.abs(getRotationValue(str ,1))/90;
-							j += rate * dirRate * (90 - Math.abs(getRotationValue(str ,1)))/90;
+			// function movemobile(elem, btn, dir = "forward", rate = 1){
+			// 	i = Number(getTranslationValue(str ,2));
+			// 	j = Number(getTranslationValue(str ,3));
+			// 	var interval, dirRate;
+			// 	if(dir == "forward")
+			// 		dirRate = 1;
+			// 	else if(dir == "backward")
+			// 		dirRate = -1;
+			// 	btn.addEventListener('touchstart', function(event){
+			// 		interval = setInterval(function(){
+			// 			if(getRotationValue(str ,1) >= 0 && getRotationValue(str ,1) <= 90){
+			// 				i -= rate * dirRate * Math.abs(getRotationValue(str ,1))/90;
+			// 				j += rate * dirRate * (90 - Math.abs(getRotationValue(str ,1)))/90;
 							
-						}
-						else if(getRotationValue(str ,1) > 90 && getRotationValue(str ,1) <= 180){
-							i -= rate * dirRate * (90 - (Math.abs(getRotationValue(str ,1)) - 90))/90;
-							j -= rate * dirRate * (Math.abs(getRotationValue(str ,1)) - 90)/90;
+			// 			}
+			// 			else if(getRotationValue(str ,1) > 90 && getRotationValue(str ,1) <= 180){
+			// 				i -= rate * dirRate * (90 - (Math.abs(getRotationValue(str ,1)) - 90))/90;
+			// 				j -= rate * dirRate * (Math.abs(getRotationValue(str ,1)) - 90)/90;
 						
-						}
-						else if(getRotationValue(str ,1) > 180 && getRotationValue(str ,1) <= 270){
-							j -= rate * dirRate * (90 - (Math.abs(getRotationValue(str ,1)) - 180))/90;
-							i += rate * dirRate * (Math.abs(getRotationValue(str ,1)) - 180)/90;
+			// 			}
+			// 			else if(getRotationValue(str ,1) > 180 && getRotationValue(str ,1) <= 270){
+			// 				j -= rate * dirRate * (90 - (Math.abs(getRotationValue(str ,1)) - 180))/90;
+			// 				i += rate * dirRate * (Math.abs(getRotationValue(str ,1)) - 180)/90;
 						
-						}
-						else if(getRotationValue(str ,1) > 270 && getRotationValue(str ,1) < 360){
-							i += rate * dirRate * (90 - (Math.abs(getRotationValue(str ,1)) - 270))/90;
-							j += rate * dirRate * (Math.abs(getRotationValue(str ,1)) - 270)/90;
+			// 			}
+			// 			else if(getRotationValue(str ,1) > 270 && getRotationValue(str ,1) < 360){
+			// 				i += rate * dirRate * (90 - (Math.abs(getRotationValue(str ,1)) - 270))/90;
+			// 				j += rate * dirRate * (Math.abs(getRotationValue(str ,1)) - 270)/90;
 						
-						}
+			// 			}
 
-						if(i>=-185 && i<=185)
-							str = replaceTranslateValuesAndConcat(str, 2, i);
-						else{
-							i = ((i > 185)?185:-185);
-							str = replaceTranslateValuesAndConcat(str, 2, i);
-						}
-						if((j>=465 && j<=835))
-							str = replaceTranslateValuesAndConcat(str, 3, j);
-						else{
-							j = ((j > 835)?835:465);
-							str = replaceTranslateValuesAndConcat(str, 3, j);
-						}
-							elem.style.cssText = "transform: "+ str + ";";
-					}, 2);
-				});
-				document.addEventListener("touchend", function(){
-					clearInterval(interval);
-				});
-			}
+			// 			if(i>=-185 && i<=185)
+			// 				str = replaceTranslateValuesAndConcat(str, 2, i);
+			// 			else{
+			// 				i = ((i > 185)?185:-185);
+			// 				str = replaceTranslateValuesAndConcat(str, 2, i);
+			// 			}
+			// 			if((j>=465 && j<=835))
+			// 				str = replaceTranslateValuesAndConcat(str, 3, j);
+			// 			else{
+			// 				j = ((j > 835)?835:465);
+			// 				str = replaceTranslateValuesAndConcat(str, 3, j);
+			// 			}
+			// 				elem.style.cssText = "transform: "+ str + ";";
+			// 		}, 2);
+			// 	});
+			// 	document.addEventListener("touchend", function(){
+			// 		clearInterval(interval);
+			// 	});
+			// }
 
-			function moveForward(){
-				var mUp = document.getElementById("m-up");
-				var divOverlay = document.getElementById("overlay");
-				//move(divOverlay, mUp, "forward", 2);
-				movemobile(divOverlay, mUp, "forward", 1);
-			}
-			moveForward();
+			// function moveForward(){
+			// 	var mUp = document.getElementById("m-up");
+			// 	var divOverlay = document.getElementById("overlay");
+			// 	move(divOverlay, mUp, "forward", 2);
+			// 	movemobile(divOverlay, mUp, "forward", 1);
+			// }
+			// moveForward();
 
-			function moveBackword(){
-				var mDn = document.getElementById("m-dn");
-				var divOverlay = document.getElementById("overlay");
-				//move(divOverlay, mDn, "backward", 2);
-				movemobile(divOverlay, mDn, "backward", 1);
-			}
-			moveBackword();
+			// function moveBackword(){
+			// 	var mDn = document.getElementById("m-dn");
+			// 	var divOverlay = document.getElementById("overlay");
+			// 	move(divOverlay, mDn, "backward", 2);
+			// 	movemobile(divOverlay, mDn, "backward", 1);
+			// }
+			// moveBackword();
 
 		/* full screen functions */
 
