@@ -291,10 +291,12 @@
 					}
 				}, true);
 			}
-			mouseClickandMoveControl();
+			//mouseClickandMoveControl();
 
 			function mouseClickandMoveControlMobile(){
 				var divOverlay = document.getElementById ("overlay");
+				var divMap = document.getElementById("rm-map");
+				var temp;
 				var layerX = [0,0];
 				var layerY = [0,0];
 				var rotate = [0,0];
@@ -447,16 +449,16 @@
 			function moveForward(){
 				var mUp = document.getElementById("m-up");
 				var divOverlay = document.getElementById("overlay");
-				move(divOverlay, mUp, "forward", 2);
-				movemobile(divOverlay, mUp, "forward", 2);
+				//move(divOverlay, mUp, "forward", 2);
+				movemobile(divOverlay, mUp, "forward", 1);
 			}
 			moveForward();
 
 			function moveBackword(){
 				var mDn = document.getElementById("m-dn");
 				var divOverlay = document.getElementById("overlay");
-				move(divOverlay, mDn, "backward", 2);
-				movemobile(divOverlay, mDn, "backward", 2);
+				//move(divOverlay, mDn, "backward", 2);
+				movemobile(divOverlay, mDn, "backward", 1);
 			}
 			moveBackword();
 
